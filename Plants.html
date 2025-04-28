@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Care Schedule</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Plant Watering & Care</h1>
+
+    <div class="instructions">
+        <h2>General Instructions:</h2>
+        <p>Click on a plant to see details. Use the colored border to track watering:</p>
+        <ul>
+            <li><span class="legend-green">Green:</span> Recently watered, likely okay.</li>
+            <li><span class="legend-yellow">Yellow:</span> Getting close, check soil soon.</li>
+            <li><span class="legend-red">Red:</span> Likely overdue for watering!</li>
+        </ul>
+        <p><strong>Symbols:</strong>
+            <span>🩹</span> = Sick Plant |
+            <span>🔔</span> = Beeps (Moisture Meter) |
+            <span>🐌</span> = Poor Drainage (Water Sparingly) |
+            <span>✨</span> = Other Special Care Needed
+        </p>
+        <p><strong>Bottom Watering (for 4" nursery pots):</strong> Water for 30 mins with tepid/warm water. Change water if it turns brown. (Cold water can shock plants).</p>
+        <p><strong>IMPORTANT:</strong> Colors are estimates based on last watering. <strong>Always check the soil moisture before watering, especially for plants marked '🐌' (poor drainage) or plants marked as SICK '🩹'!</strong> Conditions change.</p>
+    </div>
+
+    <!-- Sorting Controls -->
+    <div class="sort-controls">
+        <label for="sort-select">Sort by:</label>
+        <select id="sort-select">
+            <option value="urgency">Needs Water (Urgency)</option>
+            <option value="alphabetical">Alphabetical (A-Z)</option>
+            <option value="location">Location</option>
+        </select>
+    </div>
+
+    <div id="plant-grid">
+        <!-- Plant cards will be inserted here by JavaScript -->
+    </div>
+
+    <!-- Modal Structure (Hidden by default) -->
+    <div id="plant-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+
+            <!-- Image Container -->
+            <div class="modal-image-container">
+                 <img id="modal-plant-image" src="placeholder.jpg" alt="Plant Image">
+                 <h2 id="modal-plant-name">Plant Name</h2> <!-- Common Name -->
+                 <p class="scientific-name"><em><span id="modal-scientific-name">Scientific Name</span></em></p> <!-- Scientific Name Display -->
+            </div>
+
+            <!-- Details Container -->
+            <div class="modal-details-container">
+                <h3>Care Details:</h3>
+                <p><strong>Location:</strong> <span id="modal-plant-location"></span></p>
+                <p><strong>Light:</strong> <span id="modal-plant-light"></span></p>
+                <p><strong>Water:</strong> <span id="modal-plant-water"></span></p>
+                <p><strong>Soil:</strong> <span id="modal-plant-soil"></span></p>
+
+                <!-- Added Fields -->
+                <p><strong>Est. Water Frequency:</strong> <span id="modal-frequency"></span></p>
+                <p><strong>Last Watered:</strong> <span id="modal-last-watered"></span></p>
+                <!-- End Added Fields -->
+
+                <p><strong>Special Notes:</strong> <span id="modal-plant-notes"></span></p>
+                <button id="watered-button">Mark as Watered</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
